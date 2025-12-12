@@ -1,0 +1,106 @@
+<!-- news/templates/news/base.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Новости{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: #007bff;
+            padding: 15px 0;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .search-box {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .search-input {
+            width: 400px;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .search-btn {
+            padding: 8px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .news-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .news-title {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .article-content {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background: #666;
+            color: white;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">📰 Новости</a>
+        </div>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© {% now "Y" %} Новостной сайт</p>
+        </div>
+    </footer>
+</body>
+</html>
